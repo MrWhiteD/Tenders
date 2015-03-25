@@ -4,7 +4,7 @@ session_start();
 ?>
 <html>
 <head>
-       <title>База данных тендеров</title>
+       <title>База данных тендеровsdfgsdfgs</title>
 </head>
 <body style="font-family:Arial; font-size:12px;">
 <?php
