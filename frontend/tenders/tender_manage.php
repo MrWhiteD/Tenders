@@ -4,13 +4,13 @@ session_start();
 ?>
 <html>
 <head>
-       <title>Работа с тендерами</title>
+       <title>Р Р°Р±РѕС‚Р° СЃ С‚РµРЅРґРµСЂР°РјРё</title>
 </head>
 <body style="font-family:Arial; font-size:12px;">
 <?php
 mssql_connect('192.168.1.103','www_user','Axm6FpWEY4');
-$types = Array("Запрос котировок","Открытый конкурс","Тендер","Закрытый конкурс","Электронные торги");          //Не менять порядок!!!
-$results = Array("--НЕТ--","В работе","Не допустили","Проигран - Цена","Не успели","Выигран","Не прошли по цене","Закуп не дал цены вовремя","Не проходим по условиям","Отправлено","Не состоялся");   //Не менять порядок!!!
+$types = Array("Р—Р°РїСЂРѕСЃ РєРѕС‚РёСЂРѕРІРѕРє","РћС‚РєСЂС‹С‚С‹Р№ РєРѕРЅРєСѓСЂСЃ","РўРµРЅРґРµСЂ","Р—Р°РєСЂС‹С‚С‹Р№ РєРѕРЅРєСѓСЂСЃ","Р­Р»РµРєС‚СЂРѕРЅРЅС‹Рµ С‚РѕСЂРіРё");          //РќРµ РјРµРЅСЏС‚СЊ РїРѕСЂСЏРґРѕРє!!!
+$results = Array("--РќР•Рў--","Р’ СЂР°Р±РѕС‚Рµ","РќРµ РґРѕРїСѓСЃС‚РёР»Рё","РџСЂРѕРёРіСЂР°РЅ - Р¦РµРЅР°","РќРµ СѓСЃРїРµР»Рё","Р’С‹РёРіСЂР°РЅ","РќРµ РїСЂРѕС€Р»Рё РїРѕ С†РµРЅРµ","Р—Р°РєСѓРї РЅРµ РґР°Р» С†РµРЅС‹ РІРѕРІСЂРµРјСЏ","РќРµ РїСЂРѕС…РѕРґРёРј РїРѕ СѓСЃР»РѕРІРёСЏРј","РћС‚РїСЂР°РІР»РµРЅРѕ","РќРµ СЃРѕСЃС‚РѕСЏР»СЃСЏ");   //РќРµ РјРµРЅСЏС‚СЊ РїРѕСЂСЏРґРѕРє!!!
 function money($a)
 {
     $x = 0.0;
@@ -32,10 +32,10 @@ function money($a)
 
 if(!isset($_SESSION["MANAG"]))
 {
-    if(isset($err)) echo '<center style="font-family:Arial; font-size:12px; color:#FF0000; font-weight:bold;">У вас нет прав доступа к этой странице</center>';
+    if(isset($err)) echo '<center style="font-family:Arial; font-size:12px; color:#FF0000; font-weight:bold;">РЈ РІР°СЃ РЅРµС‚ РїСЂР°РІ РґРѕСЃС‚СѓРїР° Рє СЌС‚РѕР№ СЃС‚СЂР°РЅРёС†Рµ</center>';
     if(!isset($sub))
     {
-        echo '<center><form action='.$PHP_SELF.' method="GET"><table><tr><td>Логин</td><td><input type="text" name="login" size="30"></td></tr><tr><td>Пароль</td><td><input type="password" name="pasw" size="30"></td></tr><tr><td align="center" colspan="2"><input type="submit" value="Вход" name="sub"></td></tr></form>';
+        echo '<center><form action='.$PHP_SELF.' method="GET"><table><tr><td>Р›РѕРіРёРЅ</td><td><input type="text" name="login" size="30"></td></tr><tr><td>РџР°СЂРѕР»СЊ</td><td><input type="password" name="pasw" size="30"></td></tr><tr><td align="center" colspan="2"><input type="submit" value="Р’С…РѕРґ" name="sub"></td></tr></form>';
     }
     else
     {
@@ -77,7 +77,7 @@ elseif($_SESSION["MANAG"])
         	{
         		$struse = ", DATE_USE='".date("YmdHi")."' ";
         		$d = date('Y.m.d H:i:s');
-        		mssql_query("INSERT INTO [etriline].[TRILINE\dmitry].[TENDER_LOG] (MANAG,TXT,TENDER,DAT) VALUES ('".$manag."','Взят в работу тендер','".$tid."','".$d."')");
+        		mssql_query("INSERT INTO [etriline].[TRILINE\dmitry].[TENDER_LOG] (MANAG,TXT,TENDER,DAT) VALUES ('".$manag."','Р’Р·СЏС‚ РІ СЂР°Р±РѕС‚Сѓ С‚РµРЅРґРµСЂ','".$tid."','".$d."')");
         	}
         }
         else
@@ -85,7 +85,7 @@ elseif($_SESSION["MANAG"])
         	$struse = ", DATE_USE='' ";
         	$mm = mssql_fetch_array(mssql_query("SELECT MANAGER FROM [etriline].[TRILINE\dmitry].[TENDER] WHERE ID=".$tid));
         	$d = date('Y.m.d H:i:s');
-        	mssql_query("INSERT INTO [etriline].[TRILINE\dmitry].[TENDER_LOG] (MANAG,TXT,TENDER,DAT) VALUES ('".$mm[0]."','Отказ от тендера','".$tid."','".$d."')");
+        	mssql_query("INSERT INTO [etriline].[TRILINE\dmitry].[TENDER_LOG] (MANAG,TXT,TENDER,DAT) VALUES ('".$mm[0]."','РћС‚РєР°Р· РѕС‚ С‚РµРЅРґРµСЂР°','".$tid."','".$d."')");
         }
 
         mssql_query("
@@ -116,26 +116,26 @@ elseif($_SESSION["MANAG"])
                 $time4 = date("d.m.Y",mktime(0,0,0,substr($rec[21],4,2),substr($rec[21],6,2),substr($rec[21],0,4)));
                 else
                 $time4 = "";
-                if($rec[7]) $str1 = ' МСК'; else $str1 = '';
-                if($rec[9]) $str2 = ' МСК'; else $str2 = '';
-                echo '<a href="'.$PHP_SELF.'">Вернуться к списку</a><br><br><form action="'.$PHP_SELF.'" method="POST">
+                if($rec[7]) $str1 = ' РњРЎРљ'; else $str1 = '';
+                if($rec[9]) $str2 = ' РњРЎРљ'; else $str2 = '';
+                echo '<a href="'.$PHP_SELF.'">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє СЃРїРёСЃРєСѓ</a><br><br><form action="'.$PHP_SELF.'" method="POST">
                       <table cellpadding="3" cellspacing="0" border="1" style="font-family:Arial; font-size:12px">
-                             <tr><td>Компания:</td><td>'.$rec[1].'</td></tr>
-                             <tr><td>Город:</td><td>'.$rec[2].'</td></tr>
-                             <tr><td>Адрес:</td><td>'.$rec[3].'</td></tr>
-                             <tr><td>Ссылка на тендер:</td><td><a href="'.$rec[4].'" target="_blank">'.$rec[4].'</a></td></tr>
-                             <tr><td>Дата объявления:</td><td>'.$time1.'</td></tr>
-                             <tr><td>Дата добавления:</td><td>'.$time4.'</td></tr>
-                             <tr><td>Окончание приема документов:</td><td>'.$time2.$str1.'</td></tr>
-                             <tr><td>Дата проведения тендера:</td><td>'.$time3.$str2.'</td></tr>
-                             <tr><td>Содержание тендера:</td><td>'.$rec[10].'</td></tr>
-                             <tr><td>Сумма начальная:</td><td>'.money($rec[11]).'</td></tr>
-                             <tr><td>Сумма Трилайн:</td><td><input type="text" name="sum2" id="sum2" size="65" value="'.money($rec[12]).'"></td></tr>
-                             <tr><td>Сумма победителя:</td><td><input type="text" name="sum3" id="sum3" size="65" value="'.money($rec[13]).'"></td></tr>
-                             <tr><td>Сумма учетная:</td><td><input type="text" name="sum4" id="sum4" size="65" value="'.money($rec[19]).'"></td></tr>
-                             <tr><td>Номер счета:</td><td><input type="text" name="chn" id="chn" size="65" value="'.$rec[20].'"></td></tr>
-                             <tr><td>Тип тендера:</td><td>'.$types[$rec[14]].'</td></tr>
-                             <tr><td>Результат:</td><td><select name="rez" id="rez" size="1">';
+                             <tr><td>РљРѕРјРїР°РЅРёСЏ:</td><td>'.$rec[1].'</td></tr>
+                             <tr><td>Р“РѕСЂРѕРґ:</td><td>'.$rec[2].'</td></tr>
+                             <tr><td>РђРґСЂРµСЃ:</td><td>'.$rec[3].'</td></tr>
+                             <tr><td>РЎСЃС‹Р»РєР° РЅР° С‚РµРЅРґРµСЂ:</td><td><a href="'.$rec[4].'" target="_blank">'.$rec[4].'</a></td></tr>
+                             <tr><td>Р”Р°С‚Р° РѕР±СЉСЏРІР»РµРЅРёСЏ:</td><td>'.$time1.'</td></tr>
+                             <tr><td>Р”Р°С‚Р° РґРѕР±Р°РІР»РµРЅРёСЏ:</td><td>'.$time4.'</td></tr>
+                             <tr><td>РћРєРѕРЅС‡Р°РЅРёРµ РїСЂРёРµРјР° РґРѕРєСѓРјРµРЅС‚РѕРІ:</td><td>'.$time2.$str1.'</td></tr>
+                             <tr><td>Р”Р°С‚Р° РїСЂРѕРІРµРґРµРЅРёСЏ С‚РµРЅРґРµСЂР°:</td><td>'.$time3.$str2.'</td></tr>
+                             <tr><td>РЎРѕРґРµСЂР¶Р°РЅРёРµ С‚РµРЅРґРµСЂР°:</td><td>'.$rec[10].'</td></tr>
+                             <tr><td>РЎСѓРјРјР° РЅР°С‡Р°Р»СЊРЅР°СЏ:</td><td>'.money($rec[11]).'</td></tr>
+                             <tr><td>РЎСѓРјРјР° РўСЂРёР»Р°Р№РЅ:</td><td><input type="text" name="sum2" id="sum2" size="65" value="'.money($rec[12]).'"></td></tr>
+                             <tr><td>РЎСѓРјРјР° РїРѕР±РµРґРёС‚РµР»СЏ:</td><td><input type="text" name="sum3" id="sum3" size="65" value="'.money($rec[13]).'"></td></tr>
+                             <tr><td>РЎСѓРјРјР° СѓС‡РµС‚РЅР°СЏ:</td><td><input type="text" name="sum4" id="sum4" size="65" value="'.money($rec[19]).'"></td></tr>
+                             <tr><td>РќРѕРјРµСЂ СЃС‡РµС‚Р°:</td><td><input type="text" name="chn" id="chn" size="65" value="'.$rec[20].'"></td></tr>
+                             <tr><td>РўРёРї С‚РµРЅРґРµСЂР°:</td><td>'.$types[$rec[14]].'</td></tr>
+                             <tr><td>Р РµР·СѓР»СЊС‚Р°С‚:</td><td><select name="rez" id="rez" size="1">';
                              for($i=0;$i<count($results);$i++)
                              {
                                  if($rec[16]==$i)
@@ -144,7 +144,7 @@ elseif($_SESSION["MANAG"])
                                  echo '<option value="'.$i.'">'.$results[$i].'</option>';
                              }
                              echo '</select></td></tr>
-                             <tr><td>Менеджер:</td><td><select name="manag" id="manag" size="1"><option value="0">--НЕТ--</option>';
+                             <tr><td>РњРµРЅРµРґР¶РµСЂ:</td><td><select name="manag" id="manag" size="1"><option value="0">--РќР•Рў--</option>';
                              if($_SESSION["MANAG"]==0)
                              $rs1 = mssql_query("SELECT * FROM [etriline].[TRILINE\dmitry].[TENDER_USER] WHERE ID='".$_SESSION["MANAG"]."'");
                              else
@@ -157,12 +157,12 @@ elseif($_SESSION["MANAG"])
                                  echo '<option value="'.$rec1[0].'">'.$rec1[3].'</option>';
                              }
                              echo '</select></td></tr>
-                             <tr><td>Победитель:</td><td><input type="text" name="winn" id="winn" size="65" value="'.$rec[17].'"></td></tr>
-                             <tr><td>Примечание:</td><td><textarea name="txt" id="txt" cols="50" rows="5">'.$rec[18].'</textarea></td></tr>';
+                             <tr><td>РџРѕР±РµРґРёС‚РµР»СЊ:</td><td><input type="text" name="winn" id="winn" size="65" value="'.$rec[17].'"></td></tr>
+                             <tr><td>РџСЂРёРјРµС‡Р°РЅРёРµ:</td><td><textarea name="txt" id="txt" cols="50" rows="5">'.$rec[18].'</textarea></td></tr>';
                              if($rec[15]=='0' || $rec[15]==$_SESSION["MANAG"])
                              echo '<tr><td align="center" colspan="2">
                              <input type="hidden" name="tid" id="tid" value="'.$tid.'">
-                             <input type="submit" name="sub2" id="sub2" value="Сохранить данные"></td></tr>';
+                             <input type="submit" name="sub2" id="sub2" value="РЎРѕС…СЂР°РЅРёС‚СЊ РґР°РЅРЅС‹Рµ"></td></tr>';
                 echo'
                 </table>
                 </form>';
@@ -178,12 +178,12 @@ elseif($_SESSION["MANAG"])
     }
     else
     {
-        echo '<a href="'.$PHP_SELF.'?do=4">Выйти</a><br><br>';
-        echo '<a href="'.$PHP_SELF.'?showall=1">Посмотреть все</a><br><br>';
-        //Если выбрано "показать все"
+        echo '<a href="'.$PHP_SELF.'?do=4">Р’С‹Р№С‚Рё</a><br><br>';
+        echo '<a href="'.$PHP_SELF.'?showall=1">РџРѕСЃРјРѕС‚СЂРµС‚СЊ РІСЃРµ</a><br><br>';
+        //Р•СЃР»Рё РІС‹Р±СЂР°РЅРѕ "РїРѕРєР°Р·Р°С‚СЊ РІСЃРµ"
         if(!isset($showall)) $strtop = ' TOP 500 ';
         else $strtop = ' ';
-        //Если выбрана сортировка
+        //Р•СЃР»Рё РІС‹Р±СЂР°РЅР° СЃРѕСЂС‚РёСЂРѕРІРєР°
         switch($sort)
      	{
      		case 'num':
@@ -212,7 +212,7 @@ elseif($_SESSION["MANAG"])
      			break;
      		}
      	}
-        //Если был наложен фильтр
+        //Р•СЃР»Рё Р±С‹Р» РЅР°Р»РѕР¶РµРЅ С„РёР»СЊС‚СЂ
         if(!isset($search))
         {
             $rs = mssql_query("
@@ -275,19 +275,19 @@ elseif($_SESSION["MANAG"])
             where ten.MANAGER IN (".$managers.") ORDER BY ten.ID DESC";
             $rs = mssql_query($zapros);
         }
-        echo '<form action="'.$PHP_SELF.'" method="POST">Фильтр по менеджеру:&nbsp;<select multiple="MULTIPLE" name="manag[]" id="manag[]" size="10"><option value="0">--НЕТ--</option>';
+        echo '<form action="'.$PHP_SELF.'" method="POST">Р¤РёР»СЊС‚СЂ РїРѕ РјРµРЅРµРґР¶РµСЂСѓ:&nbsp;<select multiple="MULTIPLE" name="manag[]" id="manag[]" size="10"><option value="0">--РќР•Рў--</option>';
         $rm = mssql_query("SELECT ID,FIO FROM [etriline].[TRILINE\dmitry].[TENDER_USER] ORDER BY FIO");
         while($recm = mssql_fetch_array($rm))
         {
             echo '<option value="'.$recm[0].'">'.$recm[1].'</option>';
         }
-        echo '</select>Кол-во записей:&nbsp;<select name="col" id="col"><option value="0">Все</option><option value="100">100 последних</option><option value="50">50 последних</option><option value="10">10 последних</option></select><input type="submit" name="search" id="search" value="Поиск"><a href="'.$PHP_SELF.'">Сбросить фильтр</a></form>';
+        echo '</select>РљРѕР»-РІРѕ Р·Р°РїРёСЃРµР№:&nbsp;<select name="col" id="col"><option value="0">Р’СЃРµ</option><option value="100">100 РїРѕСЃР»РµРґРЅРёС…</option><option value="50">50 РїРѕСЃР»РµРґРЅРёС…</option><option value="10">10 РїРѕСЃР»РµРґРЅРёС…</option></select><input type="submit" name="search" id="search" value="РџРѕРёСЃРє"><a href="'.$PHP_SELF.'">РЎР±СЂРѕСЃРёС‚СЊ С„РёР»СЊС‚СЂ</a></form>';
         echo '<table cellpadding="3" cellspacing="0" border="1" style="font-family:Arial;font-size:12px" frame="box">';
                      /*
                      echo '<form action="'.$PHP_SELF.'" method="POST">
                      <tr>
-                         <td colspan="2"><b>Выберите условия поиска:</b></td>
-                         <td><select name="s_city" id="s_city" size="1"><option value="0">--Любой--</option>';
+                         <td colspan="2"><b>Р’С‹Р±РµСЂРёС‚Рµ СѓСЃР»РѕРІРёСЏ РїРѕРёСЃРєР°:</b></td>
+                         <td><select name="s_city" id="s_city" size="1"><option value="0">--Р›СЋР±РѕР№--</option>';
                          $rc = mssql_query("SELECT DISTINCT CITY FROM [etriline].[TRILINE\dmitry].[TENDER] ORDER BY CITY");
                          while($recc = mssql_fetch_array($rc))
                          {
@@ -296,49 +296,49 @@ elseif($_SESSION["MANAG"])
                          $dat1 = date("d.m.Y",mktime(0,0,0,date("m"),date("d"),date("Y")-1));
                          $dat2 = date("d.m.Y",mktime(0,0,0,date("m"),date("d"),date("Y")+1));
                          echo '</select></td>
-                         <td colspan="2">с:&nbsp;&nbsp;<input type="text" name="s_dat_b" id="s_dat_b" size="8" value="'.$dat1.'">&nbsp;&nbsp;по:&nbsp;&nbsp;<input type="text" name="s_dat_e" id="s_dat_e" size="8" value="'.$dat2.'"></td>
+                         <td colspan="2">СЃ:&nbsp;&nbsp;<input type="text" name="s_dat_b" id="s_dat_b" size="8" value="'.$dat1.'">&nbsp;&nbsp;РїРѕ:&nbsp;&nbsp;<input type="text" name="s_dat_e" id="s_dat_e" size="8" value="'.$dat2.'"></td>
                          <td></td>
                          <td></td>
 
-                         <td><select name="tip" id="tip" size="1"><option value="100">--Любой--</option>';
+                         <td><select name="tip" id="tip" size="1"><option value="100">--Р›СЋР±РѕР№--</option>';
                          for($i=0;$i<count($types);$i++)
                          {
                              echo '<option value="'.$i.'">'.$types[$i].'</option>';
                          }
                          echo '</select></td>
                          <td colspan="4"></td>
-                         <td><select name="manag" id="manag" size="1"><option value="1000">--Любой--</option><option value="0">--Не выбран--</option>';
+                         <td><select name="manag" id="manag" size="1"><option value="1000">--Р›СЋР±РѕР№--</option><option value="0">--РќРµ РІС‹Р±СЂР°РЅ--</option>';
                          $rm = mssql_query("SELECT ID,FIO FROM [etriline].[TRILINE\dmitry].[TENDER_USER] ORDER BY FIO");
                          while($recm = mssql_fetch_array($rm))
                          {
                              echo '<option value="'.$recm[0].'">'.$recm[1].'</option>';
                          }
                          echo '</select></td>
-                         <td colspan="3" align="center"><input type="submit" name="search" id="search" value="Поиск"></td>
+                         <td colspan="3" align="center"><input type="submit" name="search" id="search" value="РџРѕРёСЃРє"></td>
                      </tr>
                      </form>';*/
          echo       '<tr>
-                         <td rowspan="2"><a href="'.$PHP_SELF.'?sort=num">Код</a></td>
-                         <td rowspan="2" align="center"><a href="'.$PHP_SELF.'?sort=kl">Компания</a></td>
-                         <td rowspan="2" align="center"><a href="'.$PHP_SELF.'?sort=city">Город</a></td>
-                         <td colspan="3" align="center">Время</td>
-                         <td rowspan="2" align="center">Предмет тендера</td>
-                         <td rowspan="2" align="center">Примечание</td>
-                         <td rowspan="2" align="center">Вид</td>
-                         <td colspan="4" align="center">Сумма</td>
-                         <td rowspan="2" align="center"><a href="'.$PHP_SELF.'?sort=manag">Менеджер</a></td>
-                         <td rowspan="2" align="center">Номер счета</td>
-                         <td rowspan="2" align="center">Результат</td>
-                         <td rowspan="2" align="center">Победитель</td>
+                         <td rowspan="2"><a href="'.$PHP_SELF.'?sort=num">РљРѕРґ</a></td>
+                         <td rowspan="2" align="center"><a href="'.$PHP_SELF.'?sort=kl">РљРѕРјРїР°РЅРёСЏ</a></td>
+                         <td rowspan="2" align="center"><a href="'.$PHP_SELF.'?sort=city">Р“РѕСЂРѕРґ</a></td>
+                         <td colspan="3" align="center">Р’СЂРµРјСЏ</td>
+                         <td rowspan="2" align="center">РџСЂРµРґРјРµС‚ С‚РµРЅРґРµСЂР°</td>
+                         <td rowspan="2" align="center">РџСЂРёРјРµС‡Р°РЅРёРµ</td>
+                         <td rowspan="2" align="center">Р’РёРґ</td>
+                         <td colspan="4" align="center">РЎСѓРјРјР°</td>
+                         <td rowspan="2" align="center"><a href="'.$PHP_SELF.'?sort=manag">РњРµРЅРµРґР¶РµСЂ</a></td>
+                         <td rowspan="2" align="center">РќРѕРјРµСЂ СЃС‡РµС‚Р°</td>
+                         <td rowspan="2" align="center">Р РµР·СѓР»СЊС‚Р°С‚</td>
+                         <td rowspan="2" align="center">РџРѕР±РµРґРёС‚РµР»СЊ</td>
                      </tr>
                      <tr>
-                         <td align="center" title="Добавлено">Add</td>
-                         <td align="center" title="Документы">Doc</td>
-                         <td align="center" title="Проведение">Act</td>
-                         <td align="center">Начальная</td>
-                         <td align="center">Трилайн</td>
-                         <td align="center">Победитель</td>
-                         <td align="center">Учетная</td>
+                         <td align="center" title="Р”РѕР±Р°РІР»РµРЅРѕ">Add</td>
+                         <td align="center" title="Р”РѕРєСѓРјРµРЅС‚С‹">Doc</td>
+                         <td align="center" title="РџСЂРѕРІРµРґРµРЅРёРµ">Act</td>
+                         <td align="center">РќР°С‡Р°Р»СЊРЅР°СЏ</td>
+                         <td align="center">РўСЂРёР»Р°Р№РЅ</td>
+                         <td align="center">РџРѕР±РµРґРёС‚РµР»СЊ</td>
+                         <td align="center">РЈС‡РµС‚РЅР°СЏ</td>
                      </tr>';
         while($rec = mssql_fetch_array($rs))
         {
@@ -346,14 +346,14 @@ elseif($_SESSION["MANAG"])
             if($rec[6]) $hour2 = 2; else $hour2 = 0;
             $time1 = date("d.m.Y H:i",mktime((substr($rec[3],8,2)+$hour1),substr($rec[3],10,2),0,substr($rec[3],4,2),substr($rec[3],6,2),substr($rec[3],0,4)));
             $time2 = date("d.m.Y H:i",mktime((substr($rec[5],8,2)+$hour2),substr($rec[5],10,2),0,substr($rec[5],4,2),substr($rec[5],6,2),substr($rec[5],0,4)));
-            //Укороченный вариант даты
+            //РЈРєРѕСЂРѕС‡РµРЅРЅС‹Р№ РІР°СЂРёР°РЅС‚ РґР°С‚С‹
             $time3 = date("d.M",mktime((substr($rec[3],8,2)+$hour1),substr($rec[3],10,2),0,substr($rec[3],4,2),substr($rec[3],6,2),substr($rec[3],0,4)));
             $time4 = date("d.M",mktime((substr($rec[5],8,2)+$hour2),substr($rec[5],10,2),0,substr($rec[5],4,2),substr($rec[5],6,2),substr($rec[5],0,4)));
             if($rec[19]!="")
             $time5 = date("d.M",mktime(substr($rec[19],8,2),substr($rec[19],10,2),0,substr($rec[19],4,2),substr($rec[19],6,2),substr($rec[19],0,4)));
             else
             $time5 = "";
-            //Раскрашиваем табличку
+            //Р Р°СЃРєСЂР°С€РёРІР°РµРј С‚Р°Р±Р»РёС‡РєСѓ
             $col = "#FFFFFF";
             $col1 = "#000000";
             if($rec[15]) {$col = "#DDDDDD"; $col1 = "#000000";}

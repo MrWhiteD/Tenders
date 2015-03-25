@@ -1,7 +1,7 @@
 <!doctype html public "-//W3C//DTD HTML 4.0 //EN">
 <html>
 <head>
-       <title>Действия по тендерам</title>
+       <title>Р”РµР№СЃС‚РІРёСЏ РїРѕ С‚РµРЅРґРµСЂР°Рј</title>
 </head>
 <body style="font-family:Arial; font-size:12px;">
 <?php
@@ -30,9 +30,9 @@ if(isset($sub))
     ".$str.$str1);
     echo '<table cellpadding="3" cellspacing="0" border="1" style="font-family:Arial; font-size:12px">
                  <tr>
-                     <td>Менеджер</td>
-                     <td>Дата</td>
-                     <td>Действие</td>
+                     <td>РњРµРЅРµРґР¶РµСЂ</td>
+                     <td>Р”Р°С‚Р°</td>
+                     <td>Р”РµР№СЃС‚РІРёРµ</td>
                  </tr>';
     while($row = mssql_fetch_row($rs))
     {
@@ -45,23 +45,23 @@ if(isset($sub))
         	</tr>';
 		}
     }
-    echo '</table><br><a href="javascript:history.back()">Назад</a>';
+    echo '</table><br><a href="javascript:history.back()">РќР°Р·Р°Рґ</a>';
 }
 else
 {
     echo '<form action="'.$PHP_SELF.'" method="GET">
-    Менеджер:
+    РњРµРЅРµРґР¶РµСЂ:
     <select name="man" id="man">
-    <option value="0">--ВСЕ--</option>';
+    <option value="0">--Р’РЎР•--</option>';
     $rs = mssql_query("SELECT ID,FIO FROM [etriline].[TRILINE\dmitry].[TENDER_USER] ORDER BY FIO");
     while($row = mssql_fetch_row($rs))
     {
         echo '<option value="'.$row[0].'">'.$row[1].'</option>';
     }
     echo '</select><br>
-    <input type="radio" name="tip" value="0" checked="CHECKED">Сортировка по дням<br>
-    <input type="radio" name="tip" value="1">Сортировка по менеджерам<br>
-    <input type="submit" name="sub" id="sub" value="Получить"></form>';
+    <input type="radio" name="tip" value="0" checked="CHECKED">РЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕ РґРЅСЏРј<br>
+    <input type="radio" name="tip" value="1">РЎРѕСЂС‚РёСЂРѕРІРєР° РїРѕ РјРµРЅРµРґР¶РµСЂР°Рј<br>
+    <input type="submit" name="sub" id="sub" value="РџРѕР»СѓС‡РёС‚СЊ"></form>';
 }
 ?>
 </body>

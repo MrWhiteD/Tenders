@@ -2,7 +2,7 @@
 <!doctype html public "-//W3C//DTD HTML 4.0 //EN">
 <html>
 <head>
-       <title>База данных по тендерам.</title>
+       <title>Р‘Р°Р·Р° РґР°РЅРЅС‹С… РїРѕ С‚РµРЅРґРµСЂР°Рј.</title>
 </head>
 <body>
 <?php
@@ -35,14 +35,14 @@ if(isset($sub2))
 }
 if($do==1)
 {
-    echo '<a href="'.$PHP_SELF.'" style="font-family:Arial; font-size:12px;">Вернуться к списку пользователей</a><br><br>
+    echo '<a href="'.$PHP_SELF.'" style="font-family:Arial; font-size:12px;">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє СЃРїРёСЃРєСѓ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№</a><br><br>
          <form action="'.$PHP_SELF.'" method="POST">
                 <table cellpadding="5" cellspacing="0" border="1" style="font-family:Arial; font-size:12px;">
-                       <tr><td><b>ФИО:</b></td><td><input type="text" name="fio" id="fio" size="50"></td></tr>
-                       <tr><td><b>Логин:</b></td><td><input type="text" name="login" id="login" size="50"></td></tr>
-                       <tr><td><b>Пароль:</b></td><td><input type="text" name="pasw" id="pasw" size="50"></td></tr>
-                       <tr><td><b>Тип:</b></td><td><input type="radio" name="tip" id="tip" value="1">Администратор<br><input type="radio" name="tip" id="tip" value="0">Пользователь</td></tr>
-                       <tr><td colspan="2" align="center"><input type="submit" name="sub1" id="sub1" value="Добавить пользователя"></td></tr>
+                       <tr><td><b>Р¤РРћ:</b></td><td><input type="text" name="fio" id="fio" size="50"></td></tr>
+                       <tr><td><b>Р›РѕРіРёРЅ:</b></td><td><input type="text" name="login" id="login" size="50"></td></tr>
+                       <tr><td><b>РџР°СЂРѕР»СЊ:</b></td><td><input type="text" name="pasw" id="pasw" size="50"></td></tr>
+                       <tr><td><b>РўРёРї:</b></td><td><input type="radio" name="tip" id="tip" value="1">РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ<br><input type="radio" name="tip" id="tip" value="0">РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ</td></tr>
+                       <tr><td colspan="2" align="center"><input type="submit" name="sub1" id="sub1" value="Р”РѕР±Р°РІРёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ"></td></tr>
                 </table></form>';
 }
 elseif($do==2)
@@ -64,34 +64,34 @@ elseif($do==3)
         $str2 = 'checked="CHECKED"';
         $str1 = '';
     }
-    echo '<a href="'.$PHP_SELF.'" style="font-family:Arial; font-size:12px;">Вернуться к списку пользователей</a><br><br>
+    echo '<a href="'.$PHP_SELF.'" style="font-family:Arial; font-size:12px;">Р’РµСЂРЅСѓС‚СЊСЃСЏ Рє СЃРїРёСЃРєСѓ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№</a><br><br>
          <form action="'.$PHP_SELF.'" method="POST">
                 <table cellpadding="5" cellspacing="0" border="1" style="font-family:Arial; font-size:12px;">
-                       <tr><td><b>ФИО:</b></td><td><input type="text" name="fio" id="fio" size="50" value="'.mssql_result($rs,0,'FIO').'"></td></tr>
-                       <tr><td><b>Логин:</b></td><td><input type="text" name="login" id="login" size="50" value="'.mssql_result($rs,0,'LOGIN').'"></td></tr>
-                       <tr><td><b>Пароль:</b></td><td><input type="text" name="pasw" id="pasw" size="50"></td></tr>
-                       <tr><td><b>Тип:</b></td><td><input type="radio" name="tip" id="tip" value="1" '.$str1.'>Администратор<br><input type="radio" name="tip" id="tip" value="0" '.$str2.'>Пользователь</td></tr>
-                       <tr><td colspan="2" align="center"><input type="submit" name="sub2" id="sub2" value="Обновить данные пользователя"><input type="hidden" name="fid" id="fid" value="'.$fid.'"></td></tr>
+                       <tr><td><b>Р¤РРћ:</b></td><td><input type="text" name="fio" id="fio" size="50" value="'.mssql_result($rs,0,'FIO').'"></td></tr>
+                       <tr><td><b>Р›РѕРіРёРЅ:</b></td><td><input type="text" name="login" id="login" size="50" value="'.mssql_result($rs,0,'LOGIN').'"></td></tr>
+                       <tr><td><b>РџР°СЂРѕР»СЊ:</b></td><td><input type="text" name="pasw" id="pasw" size="50"></td></tr>
+                       <tr><td><b>РўРёРї:</b></td><td><input type="radio" name="tip" id="tip" value="1" '.$str1.'>РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ<br><input type="radio" name="tip" id="tip" value="0" '.$str2.'>РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ</td></tr>
+                       <tr><td colspan="2" align="center"><input type="submit" name="sub2" id="sub2" value="РћР±РЅРѕРІРёС‚СЊ РґР°РЅРЅС‹Рµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ"><input type="hidden" name="fid" id="fid" value="'.$fid.'"></td></tr>
                 </table></form>';
 }
 else
 {
     $query = 'SELECT ID,FIO,LOGIN,TIP FROM etriline.[TRILINE\dmitry].TENDER_USER order by TIP,FIO';
     $rs = mssql_query($query);
-    echo '<a href="'.$PHP_SELF.'?do=1" style="font-family:Arial; font-size:12px;">Добавить пользователя</a>';
+    echo '<a href="'.$PHP_SELF.'?do=1" style="font-family:Arial; font-size:12px;">Р”РѕР±Р°РІРёС‚СЊ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ</a>';
     if(mssql_num_rows($rs))
     {
         echo '<table cellspacing="0" cellpadding="5" border="1" style="font-family:Arial; font-size:12px;">
                      <tr>
-                         <td><b>Имя</b></td>
-                         <td><b>Логин</b></td>
-                         <td><b>Тип</b></td>
-                         <td><b>Удалить</b></td>
+                         <td><b>РРјСЏ</b></td>
+                         <td><b>Р›РѕРіРёРЅ</b></td>
+                         <td><b>РўРёРї</b></td>
+                         <td><b>РЈРґР°Р»РёС‚СЊ</b></td>
                      </tr>';
         while($row = mssql_fetch_row($rs))
         {
-            if($row[3]==1) $tip = 'Администратор';
-            else $tip = 'Пользователь';
+            if($row[3]==1) $tip = 'РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ';
+            else $tip = 'РџРѕР»СЊР·РѕРІР°С‚РµР»СЊ';
             echo '<tr>
                       <td><a href="'.$PHP_SELF.'?do=3&fid='.$row[0].'">'.$row[1].'</a></td>
                       <td>'.str_replace("###","<br>",$row[2]).'</td>

@@ -1,7 +1,7 @@
 <!doctype html public "-//W3C//DTD HTML 4.0 //EN">
 <html>
 <head>
-       <title>Отчет по работе менеджеров с тендерами</title>
+       <title>РћС‚С‡РµС‚ РїРѕ СЂР°Р±РѕС‚Рµ РјРµРЅРµРґР¶РµСЂРѕРІ СЃ С‚РµРЅРґРµСЂР°РјРё</title>
 </head>
 <body style="font-family:Arial; font-size:12px;">
 <?php
@@ -25,7 +25,7 @@ function money($a)
     return strrev($str);
 }
 mssql_connect('192.168.1.103','www_user','Axm6FpWEY4');
-$results = Array("--НЕТ--","В работе","Не допустили","Проигран - Цена","Не успели","Выигран","Не прошли по цене","Закуп не дал цены вовремя","Не проходим по условиям");   //Не менять порядок!!!
+$results = Array("--РќР•Рў--","Р’ СЂР°Р±РѕС‚Рµ","РќРµ РґРѕРїСѓСЃС‚РёР»Рё","РџСЂРѕРёРіСЂР°РЅ - Р¦РµРЅР°","РќРµ СѓСЃРїРµР»Рё","Р’С‹РёРіСЂР°РЅ","РќРµ РїСЂРѕС€Р»Рё РїРѕ С†РµРЅРµ","Р—Р°РєСѓРї РЅРµ РґР°Р» С†РµРЅС‹ РІРѕРІСЂРµРјСЏ","РќРµ РїСЂРѕС…РѕРґРёРј РїРѕ СѓСЃР»РѕРІРёСЏРј");   //РќРµ РјРµРЅСЏС‚СЊ РїРѕСЂСЏРґРѕРє!!!
 if(isset($sub))
 {
     $datb = substr($dat1,0,4).substr($dat1,5,2).substr($dat1,8,2);
@@ -69,41 +69,41 @@ if(isset($sub))
 		    $a[$i][$row[2]][1] = $row[4];
 		}
     }
-    echo '<b>Данные за период: '.$dat1.' - '.$dat2.'</b><br><br><table cellpadding="3" cellspacing="0" border="1" style="font-family:Arial; font-size:12px">
+    echo '<b>Р”Р°РЅРЅС‹Рµ Р·Р° РїРµСЂРёРѕРґ: '.$dat1.' - '.$dat2.'</b><br><br><table cellpadding="3" cellspacing="0" border="1" style="font-family:Arial; font-size:12px">
                 <tr>
-                     <td rowspan="2" align="center"><b>Менеджер</b></td>
-                     <td colspan="2" align="center"><b>Итого</b></td>
-                     <td colspan="2" align="center"><b>Выиграно</b></td>
-                     <td colspan="2" align="center"><b>Не допустили</b></td>
-                     <td colspan="2" align="center"><b>Проигран - Цена</b></td>
-                     <td colspan="2" align="center"><b>Не успели</b></td>
-                     <td colspan="2" align="center"><b>Не прошли по цене</b></td>
-                     <td colspan="2" align="center"><b>Закуп не дал цены вовремя</b></td>
-                     <td colspan="2" align="center"><b>Не проходим по условиям</b></td>
-                     <td colspan="2" align="center"><b>В работе</b></td>
-                     <td colspan="2" align="center"><b>Отправлено</b></td>
+                     <td rowspan="2" align="center"><b>РњРµРЅРµРґР¶РµСЂ</b></td>
+                     <td colspan="2" align="center"><b>РС‚РѕРіРѕ</b></td>
+                     <td colspan="2" align="center"><b>Р’С‹РёРіСЂР°РЅРѕ</b></td>
+                     <td colspan="2" align="center"><b>РќРµ РґРѕРїСѓСЃС‚РёР»Рё</b></td>
+                     <td colspan="2" align="center"><b>РџСЂРѕРёРіСЂР°РЅ - Р¦РµРЅР°</b></td>
+                     <td colspan="2" align="center"><b>РќРµ СѓСЃРїРµР»Рё</b></td>
+                     <td colspan="2" align="center"><b>РќРµ РїСЂРѕС€Р»Рё РїРѕ С†РµРЅРµ</b></td>
+                     <td colspan="2" align="center"><b>Р—Р°РєСѓРї РЅРµ РґР°Р» С†РµРЅС‹ РІРѕРІСЂРµРјСЏ</b></td>
+                     <td colspan="2" align="center"><b>РќРµ РїСЂРѕС…РѕРґРёРј РїРѕ СѓСЃР»РѕРІРёСЏРј</b></td>
+                     <td colspan="2" align="center"><b>Р’ СЂР°Р±РѕС‚Рµ</b></td>
+                     <td colspan="2" align="center"><b>РћС‚РїСЂР°РІР»РµРЅРѕ</b></td>
 				</tr>
 				<tr>
-                     <td align="center">Кол-во</td>
-                     <td align="center">Сумма</td>
-                     <td align="center">Кол-во</td>
-                     <td align="center">Сумма</td>
-                     <td align="center">Кол-во</td>
-                     <td align="center">Сумма</td>
-                     <td align="center">Кол-во</td>
-                     <td align="center">Сумма</td>
-                     <td align="center">Кол-во</td>
-                     <td align="center">Сумма</td>
-                     <td align="center">Кол-во</td>
-                     <td align="center">Сумма</td>
-                     <td align="center">Кол-во</td>
-                     <td align="center">Сумма</td>
-                     <td align="center">Кол-во</td>
-                     <td align="center">Сумма</td>
-                     <td align="center">Кол-во</td>
-                     <td align="center">Сумма</td>
-                     <td align="center">Кол-во</td>
-                     <td align="center">Сумма</td>
+                     <td align="center">РљРѕР»-РІРѕ</td>
+                     <td align="center">РЎСѓРјРјР°</td>
+                     <td align="center">РљРѕР»-РІРѕ</td>
+                     <td align="center">РЎСѓРјРјР°</td>
+                     <td align="center">РљРѕР»-РІРѕ</td>
+                     <td align="center">РЎСѓРјРјР°</td>
+                     <td align="center">РљРѕР»-РІРѕ</td>
+                     <td align="center">РЎСѓРјРјР°</td>
+                     <td align="center">РљРѕР»-РІРѕ</td>
+                     <td align="center">РЎСѓРјРјР°</td>
+                     <td align="center">РљРѕР»-РІРѕ</td>
+                     <td align="center">РЎСѓРјРјР°</td>
+                     <td align="center">РљРѕР»-РІРѕ</td>
+                     <td align="center">РЎСѓРјРјР°</td>
+                     <td align="center">РљРѕР»-РІРѕ</td>
+                     <td align="center">РЎСѓРјРјР°</td>
+                     <td align="center">РљРѕР»-РІРѕ</td>
+                     <td align="center">РЎСѓРјРјР°</td>
+                     <td align="center">РљРѕР»-РІРѕ</td>
+                     <td align="center">РЎСѓРјРјР°</td>
                  </tr>';
     for($i=1;$i<count($a)+1;$i++)
     {
@@ -163,7 +163,7 @@ if(isset($sub))
   	$row1 = mssql_fetch_row($rs1);
   	
 	echo '<tr style="background-color:#FF0000; color:#FFFFFF; font-weight:bold;">
-			<td>Итого</td>
+			<td>РС‚РѕРіРѕ</td>
 			<td align="right">'.$sum1.'</td>
 			<td align="right">'.money($sum2).'</td>
 			<td align="right">'.$sum3.'</td>
@@ -186,20 +186,20 @@ if(isset($sub))
 			<td align="right">'.money($sum20).'</td>
 		</tr>
 		<tr style="background-color:#FFFF00; color:#000000; font-weight:bold;">
-			<td>Не взято в работу:</td>
+			<td>РќРµ РІР·СЏС‚Рѕ РІ СЂР°Р±РѕС‚Сѓ:</td>
 			<td align="right">'.$row1[0].'</td>
 			<td align="right">'.money($row1[1]).'</td>
 			<td colspan="18"></td>
-		</tr></table><br><a href="javascript:history.back()">Назад</a>';
+		</tr></table><br><a href="javascript:history.back()">РќР°Р·Р°Рґ</a>';
 }
 else
 {
     echo '<form action="'.$PHP_SELF.'" method="GET">
-    Начало периода:
+    РќР°С‡Р°Р»Рѕ РїРµСЂРёРѕРґР°:
     <input type="text" name="dat1" id="dat1" value="'.date("Y.m.d").'"><br>
-    Конец периода:
+    РљРѕРЅРµС† РїРµСЂРёРѕРґР°:
     <input type="text" name="dat2" id="dat2" value="'.date("Y.m.d").'"><br>
-    <input type="submit" name="sub" id="sub" value="Получить">';
+    <input type="submit" name="sub" id="sub" value="РџРѕР»СѓС‡РёС‚СЊ">';
 }
 ?>
 </form>

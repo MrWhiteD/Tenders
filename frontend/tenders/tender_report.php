@@ -1,12 +1,12 @@
 <!doctype html public "-//W3C//DTD HTML 4.0 //EN">
 <html>
 <head>
-       <title>Отчеты по тендерам</title>
+       <title>РћС‚С‡РµС‚С‹ РїРѕ С‚РµРЅРґРµСЂР°Рј</title>
 </head>
 <body style="font-family:Arial; font-size:12px;">
 <?php
 mssql_connect('192.168.1.103','www_user','Axm6FpWEY4');
-$results = Array("--НЕТ--","В работе","Не допустили","Проигран - Цена","Не успели","Выигран","Не прошли по цене","Закуп не дал цены вовремя","Не проходим по условиям","Не состоялся");   //Не менять порядок!!!
+$results = Array("--РќР•Рў--","Р’ СЂР°Р±РѕС‚Рµ","РќРµ РґРѕРїСѓСЃС‚РёР»Рё","РџСЂРѕРёРіСЂР°РЅ - Р¦РµРЅР°","РќРµ СѓСЃРїРµР»Рё","Р’С‹РёРіСЂР°РЅ","РќРµ РїСЂРѕС€Р»Рё РїРѕ С†РµРЅРµ","Р—Р°РєСѓРї РЅРµ РґР°Р» С†РµРЅС‹ РІРѕРІСЂРµРјСЏ","РќРµ РїСЂРѕС…РѕРґРёРј РїРѕ СѓСЃР»РѕРІРёСЏРј","РќРµ СЃРѕСЃС‚РѕСЏР»СЃСЏ");   //РќРµ РјРµРЅСЏС‚СЊ РїРѕСЂСЏРґРѕРє!!!
 if(isset($sub))
 {
     $datb = substr($dat1,0,4).substr($dat1,5,2).substr($dat1,8,2);
@@ -52,20 +52,20 @@ if(isset($sub))
 
     echo '<table cellpadding="3" cellspacing="0" border="1" style="font-family:Arial; font-size:12px">
                  <tr>
-                     <td>Клиент</td>
-                     <td>Объявление</td>
-                     <td>Документы</td>
-                     <td>Проведение</td>
-                     <td>Суть</td>
-                     <td>Начальная</td>
-                     <td>Наша</td>
-                     <td>Учетная</td>
-                     <td>Финальная</td>
-                     <td>Номер счета</td>
-                     <td>Итог</td>
-                     <td>Победитель</td>
-                     <td>Примечание</td>
-                     <td>Менеджер</td>
+                     <td>РљР»РёРµРЅС‚</td>
+                     <td>РћР±СЉСЏРІР»РµРЅРёРµ</td>
+                     <td>Р”РѕРєСѓРјРµРЅС‚С‹</td>
+                     <td>РџСЂРѕРІРµРґРµРЅРёРµ</td>
+                     <td>РЎСѓС‚СЊ</td>
+                     <td>РќР°С‡Р°Р»СЊРЅР°СЏ</td>
+                     <td>РќР°С€Р°</td>
+                     <td>РЈС‡РµС‚РЅР°СЏ</td>
+                     <td>Р¤РёРЅР°Р»СЊРЅР°СЏ</td>
+                     <td>РќРѕРјРµСЂ СЃС‡РµС‚Р°</td>
+                     <td>РС‚РѕРі</td>
+                     <td>РџРѕР±РµРґРёС‚РµР»СЊ</td>
+                     <td>РџСЂРёРјРµС‡Р°РЅРёРµ</td>
+                     <td>РњРµРЅРµРґР¶РµСЂ</td>
                  </tr>';
     while($row = mssql_fetch_row($rs))
     {
@@ -89,18 +89,18 @@ if(isset($sub))
                   <td>'.$row[12].'</td>
         </tr>';
     }
-    echo '</table><br><a href="javascript:history.back()">Назад</a>';
+    echo '</table><br><a href="javascript:history.back()">РќР°Р·Р°Рґ</a>';
 }
 else
 {
     echo '<form action="'.$PHP_SELF.'" method="GET">
-    Начало периода:
+    РќР°С‡Р°Р»Рѕ РїРµСЂРёРѕРґР°:
     <input type="text" name="dat1" id="dat1" value="'.date("Y.m.d").'"><br>
-    Конец периода:
+    РљРѕРЅРµС† РїРµСЂРёРѕРґР°:
     <input type="text" name="dat2" id="dat2" value="'.date("Y.m.d").'"><br>
-    Менеджер:
+    РњРµРЅРµРґР¶РµСЂ:
     <select name="man" id="man">
-    <option value="0">--ВСЕ--</option>';
+    <option value="0">--Р’РЎР•--</option>';
 
     $rs = mssql_query("SELECT ID,FIO FROM [etriline].[TRILINE\dmitry].[TENDER_USER] ORDER BY FIO");
     while($row = mssql_fetch_row($rs))
@@ -109,11 +109,11 @@ else
     }
 
     echo '</select><br>
-    <input type="radio" name="tip" value="0" checked="CHECKED">Все тендера<br>
-    <input type="radio" name="tip" value="1">Завершенные<br>
-    <input type="radio" name="tip" value="2">В работе<br>
-    <input type="radio" name="tip" value="3">Выиграные<br>
-    <input type="submit" name="sub" id="sub" value="Получить">';
+    <input type="radio" name="tip" value="0" checked="CHECKED">Р’СЃРµ С‚РµРЅРґРµСЂР°<br>
+    <input type="radio" name="tip" value="1">Р—Р°РІРµСЂС€РµРЅРЅС‹Рµ<br>
+    <input type="radio" name="tip" value="2">Р’ СЂР°Р±РѕС‚Рµ<br>
+    <input type="radio" name="tip" value="3">Р’С‹РёРіСЂР°РЅС‹Рµ<br>
+    <input type="submit" name="sub" id="sub" value="РџРѕР»СѓС‡РёС‚СЊ">';
 }
 ?>
 </form>
